@@ -1,6 +1,7 @@
+<!-- 博客编辑页面 -->
 <template>
-  <div id="app">
-    <router-view />
+  <div class="page-edit">
+    博客编辑页面
   </div>
 </template>
 
@@ -8,7 +9,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'App'
+  name: 'BlogEdit'
 })
 export default class extends Vue {}
+
 </script>
+
+<style lang="scss">
+
+</style>

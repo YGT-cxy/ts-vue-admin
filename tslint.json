@@ -9,7 +9,7 @@
     ]
   },
   "rules": {
-    "member-ordering": false,,
+    "member-ordering": false,
     "no-console": false,
     "quotemark": [true, "single"],
     "semicolon": [true, "never"],
@@ -29,10 +29,6 @@
     ],
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "no-consecutive-blank-lines": false,
-    "no-extra-parens": 2,
-    "no-extra-semi": 2,
-    "no-var": 0,
-    "eqeqeq": 2
+    "no-consecutive-blank-lines": false
   }
 }
