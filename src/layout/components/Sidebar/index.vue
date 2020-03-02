@@ -84,7 +84,7 @@ export default class extends Vue {
   }
 
   .el-scrollbar__view {
-    height: 100%
+    height: calc(100% - 50px);
   }
 
   .el-scrollbar__bar {

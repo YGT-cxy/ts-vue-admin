@@ -10,9 +10,9 @@ const service = axios.create({
 // Request interceptors
 service.interceptors.request.use(
   (config) => {
-    // Add X-Access-Token header to every request, you can add other custom headers here
+    // 设置token
     if (UserModule.token) {
-      config.headers['X-Access-Token'] = UserModule.token
+      config.headers.token = UserModule.token
     }
     return config
   },
@@ -50,7 +50,9 @@ service.interceptors.response.use(
           }
         ).then(() => {
           UserModule.ResetToken()
-          location.reload() // To prevent bugs from vue-router
+          // To prevent bugs from vue-router
+          // 防止来自vue-router的bug
+          location.reload()
         })
       }
       return Promise.reject(new Error(res.message || 'Error'))

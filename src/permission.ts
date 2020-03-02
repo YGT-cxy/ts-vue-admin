@@ -5,6 +5,7 @@ import { Message } from 'element-ui'
 import { Route } from 'vue-router'
 import { UserModule } from '@/store/modules/user'
 import getPageTitle from '@/utils/get-page-title'
+import { getToken } from '@/utils/cookies'
 
 NProgress.configure({ showSpinner: false })
 

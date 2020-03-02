@@ -1,5 +1,6 @@
 import { VuexModule, Module, Action, Mutation, getModule } from 'vuex-module-decorators'
 import store from '@/store'
+import { setToken, removeToken, getToken } from '@/utils/cookies'
 
 export interface IUserState {
   name: string
@@ -12,7 +13,7 @@ export interface IUserState {
 class User extends VuexModule implements IUserState {
   public name = ''
   public avatar = ''
-  public token = ''
+  public token = getToken() ? getToken()! : ''
   public roles: string[] = []
 
   @Mutation
@@ -39,11 +40,11 @@ class User extends VuexModule implements IUserState {
   public async Login(userInfo: { username: string, password: string }) {
     return new Promise((resolve, reject) => {
       let { username, password } = userInfo
-      console.log(username, password)
       username = username.trim()
       password = password.trim()
       this.SET_NAME(username)
       this.SET_TOKEN(username + '-' + password)
+      setToken(username + '-' + password)
       resolve()
     })
   }
@@ -58,12 +59,21 @@ class User extends VuexModule implements IUserState {
 
   @Action
   public ResetToken() {
-    this.SET_TOKEN('')
+    return new Promise((resolve, reject) => {
+      this.SET_TOKEN('')
+      removeToken()
+      resolve()
+    })
   }
 
   @Action
   public async LogOut() {
-    console.log('退出登录')
+    return new Promise((resolve, reject) => {
+      this.SET_TOKEN('')
+      removeToken()
+      location.reload()
+      resolve()
+    })
   }
 }
 

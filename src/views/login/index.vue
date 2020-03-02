@@ -75,7 +75,6 @@ import { Route } from 'vue-router'
 import { Dictionary } from 'vue-router/types/router'
 import { Form as ElForm, Input } from 'element-ui'
 import { UserModule } from '@/store/modules/user'
-import { isValidUsername } from '@/utils/validate'
 
 @Component({
   name: 'Login'
@@ -83,7 +82,7 @@ import { isValidUsername } from '@/utils/validate'
 export default class extends Vue {
   // 用户名校验规则
   private validateUsername = (rule: any, value: string, callback: any) => {
-    if (!isValidUsername(value)) {
+    if (!value) {
       callback(new Error('用户名不能为空'))
     } else {
       callback()

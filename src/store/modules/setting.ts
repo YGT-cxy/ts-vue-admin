@@ -26,6 +26,10 @@ class Setting extends VuexModule implements ISettingState {
     }
   }
 
+  /**
+   * 改变设置项
+   * @param data key和value
+   */
   @Action
   public changeSetting(data: KeyValue) {
     this.CHANGE_SETTING(data)

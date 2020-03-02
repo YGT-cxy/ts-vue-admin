@@ -36,19 +36,11 @@
               Github
             </el-dropdown-item>
           </a>
-          <a
-            target="_blank"
-            href="https://armour.github.io/vue-typescript-admin-docs/"
-          >
-            <el-dropdown-item>
-              Docs
-            </el-dropdown-item>
-          </a>
           <el-dropdown-item divided>
             <span
               style="display:block;"
               @click="logout"
-            >LogOut</span>
+            >注销登录</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
