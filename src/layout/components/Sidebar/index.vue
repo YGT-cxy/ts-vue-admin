@@ -50,9 +50,6 @@ export default class extends Vue {
     const { meta, path } = route
     // if set path, the sidebar will highlight the path you set
     // 如果设置路径，侧栏将突出显示您设置的路径
-    console.log(66)
-    console.log(meta)
-    console.log(path)
     if (meta.activeMenu) {
       return meta.activeMenu
     }

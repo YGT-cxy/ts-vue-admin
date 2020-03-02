@@ -15,6 +15,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
+import { SettingModule } from '@/store/modules/setting'
 
 @Component({
   name: 'SidebarLogo'
@@ -22,8 +23,8 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({ required: true, type: Boolean }) private collapse!: boolean
 
-  private title: string = 'Vue Admin Template'
-  private logo: string = 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
+  private title: string = SettingModule.title
+  private logo: string = SettingModule.logo
 
 }
 

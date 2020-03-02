@@ -30,7 +30,7 @@ router.beforeEach(async (to: Route, _: Route, next: any) => {
       // Check whether the user has obtained his permission roles
       // 检查用户是否获得了他的权限角色
       if (UserModule.roles.length === 0) {
-        console.log('没有权限')
+        // console.log('没有权限')
         try {
           // Get user info, including roles
           await UserModule.GetUserInfo()
@@ -51,7 +51,7 @@ router.beforeEach(async (to: Route, _: Route, next: any) => {
           NProgress.done()
         }
       } else {
-        console.log('已获取权限')
+        // console.log('已获取权限')
         next()
       }
     }

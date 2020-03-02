@@ -81,6 +81,7 @@ import { isValidUsername } from '@/utils/validate'
   name: 'Login'
 })
 export default class extends Vue {
+  // 用户名校验规则
   private validateUsername = (rule: any, value: string, callback: any) => {
     if (!isValidUsername(value)) {
       callback(new Error('用户名不能为空'))
@@ -88,6 +89,7 @@ export default class extends Vue {
       callback()
     }
   }
+  // 密码校验规则
   private validatePassword = (rule: any, value: string, callback: any) => {
     if (value.length < 6) {
       callback(new Error('密码的长度不能少于6位'))
@@ -95,15 +97,21 @@ export default class extends Vue {
       callback()
     }
   }
+
+  // 登录表单数据
   private loginForm = {
     username: 'admin',
     password: '111111'
   }
+
+  // 表单校验规则
   private loginRules = {
     username: [{ validator: this.validateUsername, trigger: 'blur' }],
     password: [{ validator: this.validatePassword, trigger: 'blur' }]
   }
+  // 密码框的type类型
   private passwordType = 'password'
+  // 是否开启登录加载态
   private loading = false
   private showDialog = false
   private redirect?: string
@@ -129,11 +137,7 @@ export default class extends Vue {
   }
 
   private showPwd() {
-    if (this.passwordType === 'password') {
-      this.passwordType = ''
-    } else {
-      this.passwordType = 'password'
-    }
+    this.passwordType = this.passwordType === 'password' ? '' : 'password'
     this.$nextTick(() => {
       (this.$refs.password as Input).focus()
     })
